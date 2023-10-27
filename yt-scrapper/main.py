@@ -19,7 +19,7 @@ def check_number(
         link: str,
 ):
     try:
-        os.system(f'yt-dlp -x --audio-format mp3 --audio-quality 0 {link} -k')
+        os.system(f'yt-dlp -x --audio-format mp3 --audio-quality 0 {link}')
 
     except requests.Timeout:
         links.append(link)

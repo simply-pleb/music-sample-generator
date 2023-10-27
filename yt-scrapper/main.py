@@ -10,7 +10,7 @@ TIMEOUT = 10
 links = deque()
 valid = []
 
-with open('links.txt', 'r') as file:
+with open('./links.txt', 'r') as file:
     for line in file:
         links.append(line.strip())
 
@@ -18,10 +18,8 @@ with open('links.txt', 'r') as file:
 def check_number(
         link: str,
 ):
-
     try:
-
-        os.system(f'.\yt-dlp.exe -x --audio-format mp3 --audio-quality 0 {link}')
+        os.system(f'yt-dlp -x --audio-format mp3 --audio-quality 0 {link} -k')
 
     except requests.Timeout:
         links.append(link)

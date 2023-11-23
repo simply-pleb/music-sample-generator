@@ -4,22 +4,22 @@ from pydub import AudioSegment
 import threading
 import math
 
-MAX_THREADS = 20
+MAX_THREADS = 32
 
 # Function to crop 10-second clips from an MP3 file
 def crop_mp3(file_path, output_folder):
-    audio = AudioSegment.from_mp3(file_path)
+    audio = AudioSegment.from_file(file = file_path, format = 'wav')
     clip_length_ms = 10 * 1000  # 10 seconds in milliseconds
 
     # Iterate and crop 10-second clips from the audio
     for i, start_time in enumerate(range(0, len(audio), clip_length_ms)):
         clip = audio[start_time:start_time + clip_length_ms]
-        output_path = f"{output_folder}/clip_{i + 1}.mp3"
-        clip.export(output_path, format="mp3")
+        output_path = f"{output_folder}/clip_{i + 1}.wav"
+        clip.export(output_path, format="wav")
 
 # Function to crop N clips with random starting points from an MP3 file
 def crop_random_clips(file_path, clip_id, output_folder, clip_duration=10):
-    audio = AudioSegment.from_mp3(file_path)
+    audio = AudioSegment.from_file(file = file_path, format = 'wav')
     # 10 seconds
     clip_length_ms = clip_duration * 1000  # Convert duration to milliseconds
     num_sections = int(math.sqrt(len(audio)//clip_length_ms))
@@ -36,8 +36,8 @@ def crop_random_clips(file_path, clip_id, output_folder, clip_duration=10):
             clip = audio[start_time:start_time + clip_length_ms]
             
             # Save the clip to the output folder
-            output_path = os.path.join(output_folder, f"{clip_id}_{i*num_clips_per_section + j + 1}.mp3")
-            clip.export(output_path, format="mp3")
+            output_path = os.path.join(output_folder, f"{clip_id}_{i*num_clips_per_section + j + 1}.wav")
+            clip.export(output_path, format="wav")
 
 
 def main():
@@ -45,8 +45,9 @@ def main():
     threads = []
     threads_counter = 0
     
-    input_folder = "../raw-data/"
+    input_folder = "../wav-data/"
     tracks = os.listdir(input_folder)
+    tracks = sorted(tracks)[-489:]
 
     output_folder = "../sampled-data/"  # Output folder where clips will be saved
     # Create the output folder if it doesn't exist
@@ -56,7 +57,7 @@ def main():
 
         print(f'{len(tracks)} left')
         track = tracks.pop()
-        clip_id = track[:3] # id is a 3 digit number
+        clip_id = track[:4] # id is a 3 digit number
         input_path = input_folder + track
         thread = threading.Thread(target=crop_random_clips, args=(input_path, clip_id, output_folder))
         thread.start()
@@ -81,7 +82,7 @@ def main():
 
         if len(tracks) != 0:
             track = tracks.pop()
-            clip_id = track[:3] # id is a 3 digit number
+            clip_id = track[:4] # id is a 4 digit number
             input_path = input_folder + track
             thread = threading.Thread(target=crop_random_clips, args=(input_path, clip_id, output_folder))
             thread.start()

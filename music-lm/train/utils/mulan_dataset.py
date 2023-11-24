@@ -17,6 +17,7 @@ from audiolm_pytorch.utils import curtail_to_multiple
 
 from einops import rearrange, reduce
 import pandas as pd
+from x_clip.tokenizer import tokenizer
 
 # helper functions
 
@@ -73,6 +74,8 @@ class MuLaNDataset(Dataset):
         artist, genre, decade = captions['artist'].tolist(), captions['genre'].tolist(), captions['decade'].tolist()
         decade = list(map(lambda x: str(round(x)) + 's', decade))
         texts = artist + genre + decade
+        if len(texts) == 0:
+            texts = ['soul']
         assert data.numel() > 0, f'one of your audio file ({file}) is empty. please remove it from your folder'
 
         if data.shape[0] > 1:
@@ -118,6 +121,6 @@ class MuLaNDataset(Dataset):
             
         # return only one audio, if only one target resample freq
         if num_outputs == 1:
-            return output[0]
+            return output[0], tokenizer.tokenize(texts).reshape(-1)
 
-        return texts, output
+        return output, tokenizer.tokenize(texts).reshape(-1)

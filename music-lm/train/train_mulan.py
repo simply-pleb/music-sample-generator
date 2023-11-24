@@ -6,10 +6,10 @@ import argparse as arg
 from pathlib import Path
 
 PWD = Path(__file__).parent.parent 
-print(PWD)
+DEVICE = 'cpu'
 
 AUDIO_KWARGS = {
-    'dim': 16,
+    'dim': 512,
     'depth': 6,
     'heads': 8,
     'accept_spec': False,
@@ -21,7 +21,7 @@ AUDIO_KWARGS = {
 }
 
 TEXT_KWARGS = {
-    'dim': 16,
+    'dim': 512,
     'depth': 6,
     'heads': 8,
     'dim_head': 64
@@ -30,7 +30,7 @@ TEXT_KWARGS = {
 MULAN_KWARGS = {
     'dataset': None,
     'num_train_steps': 10,
-    'batch_size': 16,
+    'batch_size': 2,
     'force_clear_prev_results': False,
     'save_model_every': 5,
     'results_folder': str((PWD / 'models' / 'mulan').resolve())
@@ -46,7 +46,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     train_steps, batch_size, audio_path, caption_path, ckpt_filename = args.num_steps, args.batch_size, args.audio_path, args.caption_path, args.ckpt_filename
     
-    train_dataset = MuLaNDataset(folder=audio_path, captions=caption_path, target_sample_hz=48000)
+    train_dataset = MuLaNDataset(folder=audio_path, captions=caption_path, target_sample_hz=4000)
     
     MULAN_KWARGS['dataset'] = train_dataset
     MULAN_KWARGS['batch_size'] = batch_size
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     text_transformer = TextTransformer(**TEXT_KWARGS)
     
     mulan = MuLaN(audio_transformer=audio_transformer, 
-                  text_transformer=text_transformer)
+                  text_transformer=text_transformer).to(DEVICE)
         
     trainer = MuLaNTrainer(mulan=mulan, **MULAN_KWARGS)
     

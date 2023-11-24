@@ -20,9 +20,26 @@ Team:
 
 ## Description of the task
 
+Sampling is the one of the fundamental hurdles in music creation. Most of the time DMCA and licensing issues can become the main roadblock for the artists around the world, both renowned and new to the scene. Our project is aiming to overcome this obstacle and give more freedom to the music creators. The main task is to construct a model that can generate new music samples in soul style based on the prompt given by the user. 
+
+In order to mitigate our lack of data and resource limitations, we decided to keep the prompt simple: we combine the artist name, genre and a time period. This prompt helps to achieve some kind of stylistic resemblance to the music created by the artist in a given time period and genre.
+
 ## Usage
 
+First, you will need to train a model. In order to do so, you can run a script `train_musiclm.sh` from root project folder:
+```bash
+[music-sample-generator] $ bash train_musiclm.sh
+```
+It will automatically download the dataset and train the model.
+
+After the training is done, you can use the model by executing the following command:
+
+```bash
+$ python -m music-lm.musiclm --prompt <your_prompt> --output_path <your_output_file_with_extension>
+```
 ## References
+[MusicLM: Generating Music From Text](https://google-research.github.io/seanet/musiclm/examples/) - [arXiv](https://arxiv.org/abs/2301.11325),
+[GitHub Repo](https://github.com/lucidrains/musiclm-pytorch)
 
 ### Papers (2023)
 

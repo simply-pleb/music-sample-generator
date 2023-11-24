@@ -7,7 +7,7 @@ Team:
     - github: [simply-pleb](https://github.com/simply-pleb)
     - role: literature review and data preparation
     - group: BS20-AAI
-- Robert Chen ()
+- Robert Chen
     - email: [r.chen@innopolis.university]()
     - github: [BobIllumine](https://github.com/BobIllumine)
     - role: model implementation
@@ -15,8 +15,8 @@ Team:
 - Philipp Timofeev
     - email: [p.timofeev@innopolis.university](p.timofeev@innopolis.university)
     - github: [beleet](https://github.com/beleet)
-    - role: data collection and preparation
-    - group: 
+    - role: data collection, preparation and web
+    - group: BS20-SD-02
 
 ## Description of the task
 

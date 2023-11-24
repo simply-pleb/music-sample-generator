@@ -1,0 +1,458 @@
+id	genre	style	decade	year
+4001	 soul		None	None
+4003	 soul	soul	1980	1981
+4002			None	None
+4004	 soul	soul	1960	1965
+4005	 soul		1970	1977
+4012	 soul	soul	None	None
+4010	 soul	soul	None	None
+4028	 soul	soul	1960	1966
+4030	 soul		1960	1967
+4027	 soul	soul	1960	1968
+4025	 soul	soul	1960	1969
+4008	 soul	funk	None	None
+4019	 soul	funk,soul	None	None
+4014	 soul	soul	1970	1973
+4020	 soul	funk	1960	1967
+4032	 soul	soul	2020	2020
+4016	 soul	soul	1970	1971
+4023	 soul	soul	1970	1973
+4031	 soul	ballad,vocal,soul	1970	1971
+4006	 soul	funk	None	None
+4021	 soul	soul	1970	1974
+4007	 soul	soul	1960	1967
+4013	 soul	soul	1970	1975
+4024	 soul	funk,soul	1970	1971
+4017	 soul	soul	1960	1967
+4026	 soul	soul	2020	2020
+4011	 soul	gospel	1980	1980
+4029	electronic	trance,house	1990	1999
+4009	 soul	rhythm & blues,soul,funk	1960	1966
+4018	 soul	soul	None	None
+4022	 soul	soul,funk	1970	1970
+4063	electronic	trance,house	1990	1999
+4042	 soul	soul	2000	2009
+4053	 soul	soul	1970	1978
+4056	 soul	soul	1960	1967
+4051	 soul	soul,funk	1960	1968
+4064	 soul	soul	1970	1970
+4043	 soul	soul	None	None
+4036	 soul	doo wop,rhythm & blues,soul	2010	2011
+4040	 soul	soul	1970	1974
+4060	pop		1960	1969
+4034	 soul		1960	1969
+4061	rock,folk, world, & country	rock & roll,rockabilly,country	2000	2000
+4038	 soul	soul	2000	2002
+4041	 soul	funk	None	None
+4055			None	None
+4059	 soul		1960	1965
+4033	 soul	soul	2020	2020
+4046	 soul		2010	2019
+4050	 soul	soul	1960	1966
+4057	 soul		None	None
+4045	 soul	soul	1970	1975
+4054	 soul	soul	1970	1976
+4044	 soul	soul	1970	1975
+4047	jazz,blues	country blues,delta blues,ragtime,religious	2010	2014
+4052	 soul	soul	1970	1971
+4048	rock, soul	funk,soul,rhythm & blues	2010	2015
+4058			None	None
+4039	 soul	soul	1970	1971
+4037	 soul	funk,soul	2010	2012
+4062	 soul	gospel	1970	1978
+4035	 soul	soul	None	None
+4065	 soul	soul	1970	1970
+4070	 soul	ballad,vocal,soul	1970	1971
+4078	rock	doo wop	None	None
+4085			None	None
+4087	 soul	soul	1960	1968
+4095	 soul	soul	1960	1968
+4067	 soul	soul	None	None
+4068	 soul	soul	None	None
+4076	 soul		None	None
+4081	 soul,blues	rhythm & blues,doo wop	2000	2001
+4072	 soul	soul	2010	2016
+4086	 soul	soul	1960	1967
+4066	 soul	funk,soul	1970	1975
+4082	 soul		None	None
+4077	 soul	funk,soul	1970	1973
+4089	 soul	soul,funk	2000	2007
+4093			None	None
+4091	 soul	soul	1960	1967
+4094	 soul	soul	1960	1968
+4071	 soul		None	None
+4075	 soul	soul	2010	2015
+4074	 soul	soul	1960	1968
+4092	 soul		1970	1976
+4080	 soul	soul	1970	1972
+4090	 soul	soul	1970	1972
+4096	 soul		1960	1969
+4073	jazz		1970	1976
+4084	 soul	funk	1970	1970
+4083	 soul	gospel	2010	2019
+4069	 soul	soul	1990	1994
+4079	jazz,blues	ragtime,dixieland,swing,big band,bop,boogie woogie,dark jazz,delta blues,chicago blues,electric blues,memphis blues,rhythm & blues	2000	2005
+4101	 soul	soul	1960	1968
+4109	 soul		2010	2013
+4110	 soul		2010	2015
+4107	 soul	soul	1960	1968
+4112	 soul		2010	2013
+4105	 soul	soul,funk	None	None
+4128	 soul	soul,ballad	1970	1975
+4127	 soul	soul,ballad	1970	1975
+4102	rock,pop,stage & screen	folk rock,indie pop,theme	2000	2005
+4125	 soul	soul	1970	1971
+4120	 soul		1970	1975
+4119	 soul	soul	1970	1971
+4118	 soul		1970	1975
+4108	 soul		None	None
+4106	 soul	soul	1960	1969
+4111	 soul	soul	1970	1971
+4122	 soul	soul	1970	1970
+4123	 soul	soul	1970	1970
+4113	 soul	rhythm & blues,soul	2010	2014
+4100	 soul	soul	1970	1971
+4099	 soul	rhythm & blues,soul	1960	1964
+4121	 soul	soul	1970	1970
+4117	 soul	soul	1960	1966
+4116	rock	alternative rock,punk	2000	2005
+4124	 soul	soul	1960	1969
+4103	electronic,rock	alternative rock,punk,synth-pop	1980	1985
+4097	rock	parody,hard rock,punk,glam	1970	1978
+4098	 soul	doo wop	1960	1962
+4104	 soul	soul,funk	1970	1972
+4126	 soul	soul	1960	1968
+4130	 soul	soul	1960	1968
+4129	 soul		2020	2021
+4149	 soul	soul	1970	1970
+4142	 soul	soul,funk	1970	1972
+4146	 soul	soul	2020	2021
+4139	 soul	soul,funk	1970	1972
+4150	 soul	funk,soul	1970	1975
+4154	 soul	doo wop,soul	1960	1965
+4131	 soul	rhythm & blues,soul	None	None
+4141	latin, soul	boogaloo	1960	1969
+4133	 soul	soul	None	None
+4158	 soul	soul	1970	1971
+4147	 soul	soul	1960	1965
+4135	 soul	soul	1970	1974
+4144	 soul	soul	1970	1970
+4136	 soul	soul	2010	2015
+4132	 soul	soul	1960	1968
+4151	 soul	soul	1960	1967
+4140	 soul	soul	1960	1967
+4148	 soul	soul	1960	1967
+4134	 soul	soul	2010	2011
+4145	 soul	soul	None	None
+4157	 soul	rhythm & blues,soul	1960	1969
+4155	 soul	soul,ballad	1980	1981
+4137	 soul	soul	1960	1966
+4153	 soul	soul	1960	1966
+4160	reggae	ska	1960	1965
+4138	 soul	soul	1960	1965
+4152	 soul	soul	1960	1968
+4156	 soul	soul	1970	1975
+4143	 soul		1970	1971
+4165	 soul	soul	1960	1966
+4176	 soul	funk	1960	1969
+4174	 soul	soul	1960	1965
+4188	 soul	gospel,soul	None	None
+4173	 soul		1970	1974
+4192	 soul	soul	2010	2017
+4175			None	None
+4161			None	None
+4190	 soul	soul	2000	2008
+4182	 soul	soul	1970	1977
+4166	 soul	rhythm & blues,soul	1960	1969
+4172	 soul	soul	1970	1978
+4171	 soul	soul	2010	2016
+4191			None	None
+4184	 soul	rhythm & blues,soul	1960	1968
+4180	 soul	soul,funk	1970	1974
+4169	 soul	soul	1960	1964
+4187	 soul		2010	2013
+4167	 soul	soul,ballad,funk	1970	1972
+4162	 soul	funk	2010	2016
+4164	 soul	soul	1960	1968
+4185	 soul	soul	1970	1970
+4186	electronic,hip hop,jazz,rock,reggae,latin, soul,non-music,pop,classical,folk, world, & country,stage & screen	surf,pop rock,rock & roll,soul,folk rock,new wave,arena rock,hard rock,glam,disco,funk,alternative rock,southern rock,punk,blues rock,heavy metal,electro,house,hi nrg,swing,reggae-pop,dance-pop,synth-pop,freestyle,ska,pop rap,contemporary r&b,soft rock,celtic,soundtrack,zydeco,rockabilly,flamenco,reggae,ragga,indie rock,calypso,ragga hiphop,acid jazz,hip-house,hip hop,g-funk,gangsta,euro house,italo house,eurodance,downtempo,ballroom,progressive house,conscious,funk metal,country rock,pop punk,breakbeat,techno,garage house,country,folk,ballad,easy listening,polka,acoustic,novelty,soul-jazz,big band,minneapolis sound,theme,schlager,prog rock,modern classical,ragtime,samba,p.funk,jazzy hip-hop,bass music,special effects,radioplay,bubblegum,grunge,soca,swingbeat,new jack swing,dancehall,lambada	2000	2000
+4170	 soul	funk,soul	None	None
+4189	 soul	soul	1960	1965
+4179	 soul	soul	1960	1967
+4177			None	None
+4178	 soul	soul,funk	1970	1972
+4168	 soul	rhythm & blues,soul,ballad	1970	1970
+4183	rock,pop	ballad	None	None
+4197	 soul		2020	2022
+4196	rock	garage rock,psychedelic rock	2000	2003
+4222	 soul	soul,funk	2020	2021
+4195	 soul	soul	1960	1968
+4202	 soul	soul	2020	2022
+4220	 soul	soul	1970	1974
+4216	 soul	soul	1970	1971
+4218	 soul	soul,funk	1970	1970
+4200	rock	garage rock,psychedelic rock,classic rock,folk rock,pop rock	2000	2009
+4199	 soul		2020	2020
+4203	 soul	soul	2020	2021
+4198	 soul		2020	2020
+4201	 soul	soul	2020	2021
+4219	 soul	soul	1970	1974
+4194	 soul	soul	2010	2018
+4214	 soul	soul	2020	2020
+4207	 soul	rhythm & blues,soul	2020	2022
+4193	latin, soul	soul	2020	2022
+4217	 soul	soul	1960	1964
+4213	 soul	soul	2010	2019
+4210	 soul	rhythm & blues,soul	2020	2022
+4205	 soul		2020	2021
+4212	 soul	soul	2020	2022
+4215	 soul		None	None
+4211	 soul	rhythm & blues,soul	2020	2022
+4221	 soul	soul,funk	2020	2021
+4208	 soul	rhythm & blues,soul	2020	2022
+4206	 soul		2020	2021
+4204	 soul	soul	2020	2022
+4209	 soul	rhythm & blues,soul	2020	2022
+4243	 soul		1970	1976
+4231	 soul		None	None
+4230	 soul		None	None
+4237	 soul	soul	None	None
+4229	 soul	gospel	1980	1986
+4239	 soul	soul	1960	1965
+4256	 soul	soul	1970	1973
+4227	 soul	soul	1970	1971
+4251	 soul	soul	1960	1969
+4235	latin, soul	boogaloo,funk,soul	1970	1972
+4234	 soul	soul	1960	1968
+4225	 soul	gospel	1980	1980
+4250	 soul	rhythm & blues,soul,ballad	1960	1965
+4226	rock	blues rock,country rock,rock & roll,rockabilly	2010	2018
+4252	 soul	soul	1960	1966
+4253	 soul	soul,funk,disco	1970	1976
+4247	 soul	gospel,disco,boogie	2020	2021
+4255	 soul	soul	1970	1973
+4228	classical	baroque,romantic,opera,impressionist,marches	1960	1963
+4241	 soul	soul	1970	1973
+4248	 soul	soul	1990	1996
+4232	 soul	soul	1960	1968
+4254	 soul	soul	1960	1969
+4233	 soul	soul	1960	1968
+4238	jazz,latin, soul	jazz-funk,soul,funk	1970	1971
+4244	 soul		1970	1976
+4240	 soul	soul	1970	1973
+4245	 soul		2020	2021
+4246	 soul		1970	1973
+4249	rock	garage rock,psychedelic rock,folk rock	2000	2007
+4284	 soul		2010	2019
+4259	 soul	soul	1980	1987
+4261	 soul	soul	None	None
+4266	 soul,pop	beat,ballad,soul	1960	1966
+4278	 soul	soul	1970	1975
+4267	 soul	soul	1960	1964
+4275	 soul	soul	1960	1967
+4269	 soul	soul	2000	2005
+4283	 soul	soul	2020	2020
+4272	 soul	soul	1960	1966
+4265	 soul,blues	funk	1960	1968
+4286	 soul	soul	1970	1974
+4287	 soul	soul	1960	1969
+4262	 soul	soul	None	None
+4264	 soul	soul	1970	1971
+4263	 soul		1970	1971
+4260	 soul	soul,disco,funk	1980	1988
+4285	 soul	gospel	1980	1983
+4274	 soul		1960	1965
+4257	electronic, soul	soul,disco	1970	1975
+4271	 soul	soul	2010	2014
+4273	 soul		1970	1972
+4258	 soul	soul	1970	1974
+4279	 soul	soul	1970	1970
+4270	 soul	soul	1960	1966
+4276			None	None
+4288	electronic,rock,latin, soul,pop,folk, world, & country	surf,rock & roll,pop rock,vocal,soft rock,doo wop,rockabilly,southern rock,folk rock,soul,country rock,folk,country,prog rock,blues rock,art rock,psychedelic rock,classic rock,house,rhythm & blues,synth-pop,funk,europop,glam,disco,hard rock,garage rock,symphonic rock,ballad	1990	1999
+4268	 soul	soul	1960	1969
+4277	rock,folk, world, & country	folk rock,indie rock	1990	1998
+4290	 soul	soul	1960	1966
+4312	 soul	funk	1970	1974
+4319	 soul	soul,funk	1970	1976
+4320	 soul	gospel	None	None
+4314	 soul	soul	1970	1976
+4301	 soul		None	None
+4308	 soul		None	None
+4294	 soul	soul	2010	2017
+4302	 soul		None	None
+4315	 soul	soul	1970	1976
+4313	 soul	funk	1970	1974
+4316	 soul	soul	1970	1975
+4299	 soul	soul	1970	1970
+4304	 soul	soul	1970	1974
+4295	 soul	soul	1970	1974
+4300	 soul		None	None
+4305	 soul	soul	1970	1972
+4307	 soul	soul	1980	1986
+4310	 soul		None	None
+4293	latin, soul	soul	1970	1970
+4303	 soul	soul	1970	1974
+4309	electronic	italo house,house	None	None
+4292	rock, soul		2010	2011
+4318	 soul	disco	1970	1979
+4306	 soul	soul	1990	1994
+4311	rock	post-punk	2010	2010
+4289	jazz		1970	1976
+4296	 soul		None	None
+4297	 soul		None	None
+4291	hip hop, soul	soul,funk,boogie	1980	1981
+4298	 soul	soul	1960	1968
+4333	rock, soul	soul	1960	1967
+4351	 soul	soul	None	None
+4346	 soul	soul	1970	1976
+4342	 soul	soul	None	None
+4352	 soul	rhythm & blues,soul	1970	1973
+4332	 soul		2000	2005
+4328	 soul		1970	1977
+4350	 soul	soul	None	None
+4329	 soul	soul	1960	1961
+4324	 soul	soul	1970	1970
+4326	 soul	funk,soul	2010	2013
+4341	 soul	soul	1960	1968
+4336	reggae, soul	lovers rock,soul	None	None
+4325	 soul	soul	1970	1970
+4322	 soul	soul	None	None
+4331	 soul	soul	1970	1973
+4343	 soul	rhythm & blues	None	None
+4348	 soul		2000	2008
+4344	 soul	soul	1970	1976
+4347	 soul	soul	1970	1971
+4323	electronic,jazz,rock,non-music	rock & roll,spoken word,lo-fi,avantgarde,psychedelic rock,free improvisation,experimental	2010	2010
+4335	 soul,pop	soul,ballad	1960	1966
+4334	 soul	funk,soul	2010	2014
+4340	 soul	soul,rhythm & blues	1960	1965
+4339	 soul	soul	1960	1969
+4345	 soul	soul,funk,disco	1980	1981
+4338	electronic,rock	darkwave,minimal,post-punk,goth rock	2010	2013
+4330	 soul		1970	1978
+4349	 soul		1970	1978
+4327	 soul	soul	2010	2016
+4321	 soul	soul	1970	1974
+4337	 soul	soul	1970	1977
+4376	 soul	soul	1960	1968
+4353	 soul	soul	None	None
+4384	 soul		None	None
+4361	 soul	soul	None	None
+4374	 soul	soul	1970	1970
+4383	 soul		1970	1974
+4354	 soul	soul	1960	1967
+4359	 soul	rhythm & blues,soul	1980	1981
+4365	 soul	soul	None	None
+4375	 soul	soul	1970	1973
+4379	 soul	disco	1970	1976
+4360	rock, soul	soul	1960	1967
+4358	 soul	soul,funk	1970	1978
+4355	 soul	soul	1990	1995
+4366	jazz, soul,pop	vocal,ballad,easy listening,soul,soul-jazz	2000	2008
+4377	 soul	soul	1960	1967
+4369	 soul	gospel	1970	1974
+4372	 soul	disco	1980	1986
+4363	 soul	soul	1960	1965
+4368	 soul	gospel	1970	1974
+4367	 soul	gospel	1970	1974
+4381	 soul	soul	1980	1980
+4364	 soul	soul	1960	1965
+4362	electronic, soul,pop	disco,funk,soul	1990	1996
+4378	 soul	soul	1970	1976
+4356	 soul	soul,funk,disco	2000	2001
+4373	 soul	soul,funk,disco	1970	1977
+4371	 soul	soul	1960	1966
+4380	reggae, soul	soul	1970	1974
+4389	 soul	soul	None	None
+4406	 soul	soul	1970	1975
+4393	 soul	gospel,soul,funk	1970	1974
+4394	 soul	funk	1970	1973
+4413	 soul	soul	1960	1965
+4414	 soul	soul	1960	1965
+4396	 soul	funk	1980	1980
+4408	 soul		None	None
+4411	 soul	soul,rhythm & blues	1960	1965
+4412	 soul		None	None
+4403	 soul		1970	1977
+4388	 soul	soul	1970	1975
+4405	 soul	soul	1970	1970
+4410	 soul	soul,funk,boogie	1980	1980
+4395	 soul	soul	1960	1964
+4401	 soul	soul,funk	1970	1974
+4402	 soul		2010	2012
+4416	 soul		1980	1982
+4397	 soul	soul,funk	1990	1990
+4415	rock, soul	rock & roll,rhythm & blues,pop rock,soul	2000	2007
+4386	 soul	soul	1970	1978
+4399	 soul	soul	1960	1966
+4400	electronic,hip hop,jazz,rock,reggae,latin, soul,non-music,folk, world, & country	soul-jazz,rock & roll,calypso,bop,country,field recording,political,dixieland,electric blues,country blues,chicago blues,big band,speech,hip hop,doo wop,interview,gospel,delta blues,funk,cool jazz	2000	2001
+4392	 soul	soul,funk	1970	1971
+4398	 soul	soul	1960	1966
+4409	 soul		1970	1978
+4404	 soul	soul	1960	1966
+4387	 soul	soul	1970	1975
+4391	 soul	soul,funk	1970	1971
+4407	 soul	soul	1970	1974
+4385	 soul	soul,funk,disco	1980	1980
+4390	 soul	soul	1970	1971
+4434	 soul	funk	1970	1973
+4419	 soul		1970	1974
+4420	 soul		1970	1974
+4426	rock	garage rock	None	None
+4440	 soul	soul	None	None
+4433	 soul	soul	1970	1975
+4432	 soul	soul	1960	1968
+4418	 soul	soul	1970	1975
+4423	 soul	soul	None	None
+4417	 soul	soul	1970	1975
+4445	rock	alternative rock,punk	1990	1995
+4446	electronic, soul	garage house,funk,disco	2000	2000
+4444	 soul	soul	2020	2022
+4428	 soul	soul	2010	2012
+4437	 soul	soul	1960	1969
+4422	 soul	soul	1970	1973
+4421	 soul	soul	1970	1973
+4441	 soul	soul	None	None
+4436	 soul	gospel	1970	1977
+4431	reggae		None	None
+4429	 soul	soul	1960	1964
+4442	 soul	ballad,rhythm & blues	None	None
+4438	 soul	soul	1970	1974
+4435	jazz,latin, soul		1970	1974
+4430	reggae		None	None
+4443	 soul,blues	chicago blues,soul	None	None
+4425	 soul	disco	1970	1976
+4439	 soul	soul,disco	1980	1980
+4448	 soul	rhythm & blues,soul,funk	2000	2004
+4424	rock,blues		2010	2015
+4427	jazz, soul	funk	1990	1998
+4465	 soul	soul	1970	1975
+4451	 soul		None	None
+4449	 soul	soul,funk	1960	1969
+4457	 soul	soul,funk	2010	2012
+4477	 soul		None	None
+4464	 soul		None	None
+4452	 soul	rhythm & blues,soul,twist	1970	1972
+4478	 soul	soul	1960	1964
+4470	 soul	soul	1970	1971
+4454	 soul	soul	1960	1967
+4471	 soul	soul,rhythm & blues	1960	1965
+4468	 soul	soul	1960	1968
+4453	 soul	funk	1970	1972
+4466	 soul	soul,funk	1980	1980
+4463	 soul	soul	None	None
+4480	 soul	soul	1970	1970
+4456	 soul	soul	1970	1972
+4469	 soul		1970	1971
+4455	 soul	soul	1970	1972
+4474	 soul	soul	2020	2020
+4467	 soul	soul	1970	1977
+4461	jazz, soul,blues	rhythm & blues	1990	1993
+4476	 soul	soul	None	None
+4459	 soul		1960	1966
+4479	 soul	soul	1970	1970
+4458	 soul	soul	2010	2016
+4460	 soul	soul,funk	1990	1990
+4450	 soul	soul,ballad	None	None
+4462	jazz,blues,non-music	delta blues,religious,ragtime	2010	2013

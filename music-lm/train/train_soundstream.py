@@ -1,8 +1,9 @@
-from audiolm_pytorch import MusicLMSoundStream, SoundStreamTrainer
+from audiolm_pytorch import MusicLMSoundStream, SoundStreamTrainer, HubertWithKmeans
 import argparse as arg
 from pathlib import Path
 
 PWD = Path(__file__).parent.parent
+MODELS = PWD / 'models'
 
 SOUNDSTREAM_TRAINER_KWARGS = {
     'folder': None,
@@ -10,6 +11,11 @@ SOUNDSTREAM_TRAINER_KWARGS = {
     'save_model_every': 2,
     'batch_size': 16,
     'data_max_length_seconds': 10
+}
+
+HUBERT_KWARGS = {
+    'checkpoint_path': str((MODELS / 'hubert' / 'hubert_base_ls960.pt').resolve()),
+    'kmeans_path': str((MODELS / 'hubert' / 'hubert_base_ls960_L9_km500.bin').resolve()),
 }
 
 if __name__ == '__main__':
@@ -27,8 +33,12 @@ if __name__ == '__main__':
     SOUNDSTREAM_TRAINER_KWARGS['num_train_steps'] = train_steps
     
     soundstream_ckpt = ckpt_filename
+    wav2vec = HubertWithKmeans(
+        **HUBERT_KWARGS
+    )
     
-    soundstream = MusicLMSoundStream(target_sample_hz=48000)
+    soundstream = MusicLMSoundStream(target_sample_hz=48000,
+                                     codebook_size=wav2vec.codebook_size)
     soundstream_trainer = SoundStreamTrainer(
         soundstream,
         **SOUNDSTREAM_TRAINER_KWARGS

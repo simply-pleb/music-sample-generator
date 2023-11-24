@@ -1,0 +1,105 @@
+import torch
+from audiolm_pytorch import SemanticTransformer, SemanticTransformerTrainer, HubertWithKmeans
+from musiclm_pytorch import MuLaN, AudioSpectrogramTransformer, TextTransformer, MuLaNEmbedQuantizer
+from pathlib import Path
+import argparse as arg
+
+PWD = Path(__file__).parent.parent
+MODELS = PWD / 'models'
+
+DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+SEMANTIC_KWARGS = {
+    'dim': 1024,
+    'depth': 6,
+    'audio_text_condition': True 
+}
+
+TRANSFORMER_TRAINER_KWARGS = {
+    'folder': None,
+    'num_train_steps': 10,
+    'save_model_every': 2,
+    'batch_size': 4,
+    'data_max_length_seconds': 10
+}
+
+AUDIO_KWARGS = {
+    'dim': 512,
+    'depth': 6,
+    'heads': 8,
+    'accept_spec': False,
+    'dim_head': 64,
+    'spec_n_fft': 128,
+    'spec_win_length': 24,
+    'spec_aug_stretch_factor': 0.8,
+    'patch_dropout_prob': 0.
+}
+
+TEXT_KWARGS = {
+    'dim': 512,
+    'depth': 6,
+    'heads': 8,
+    'dim_head': 64
+}
+
+MULAN_QUANTIZER_KWARGS = {
+    'conditioning_dims': (1024, 1024, 1024),
+    'namespaces': ('semantic', 'coarse', 'fine')
+}
+
+HUBERT_KWARGS = {
+    'checkpoint_path': str((MODELS / 'hubert' / 'hubert_base_ls960.pt').resolve()),
+    'kmeans_path': str((MODELS / 'hubert' / 'hubert_base_ls960_L9_km500.bin').resolve()),
+}
+
+
+
+if __name__ == '__main__':
+    parser = arg.ArgumentParser()
+    parser.add_argument('-n', '--num_train_steps', type=int, default=20)
+    parser.add_argument('-b', '--batch_size', type=int, default=16)
+    parser.add_argument('--audio_path', type=str, required=True)
+    parser.add_argument('--ckpt_filename', type=str, required=True)
+    args = parser.parse_args()
+    
+    train_steps, batch_size, audio_path, ckpt_filename = args.num_train_steps, args.batch_size, args.audio_path, args.ckpt_filename
+    
+    TRANSFORMER_TRAINER_KWARGS['folder'] = str(Path(audio_path).resolve())
+    TRANSFORMER_TRAINER_KWARGS['batch_size'] = batch_size
+    TRANSFORMER_TRAINER_KWARGS['num_train_steps'] = train_steps
+    
+    audio_transformer = AudioSpectrogramTransformer(**AUDIO_KWARGS)
+    text_transformer = TextTransformer(**TEXT_KWARGS)
+    
+    mulan = MuLaN(audio_transformer=audio_transformer, 
+                  text_transformer=text_transformer)
+    pkg = torch.load(str((MODELS / 'mulan' / 'mulan.pt').resolve()), map_location = 'cpu')
+    mulan.load_state_dict(pkg['model'])
+    
+    mulan = mulan.to(DEVICE)
+    
+    quantizer = MuLaNEmbedQuantizer(
+        mulan=mulan,                         
+        **MULAN_QUANTIZER_KWARGS
+    )
+
+    wav2vec = HubertWithKmeans(
+        **HUBERT_KWARGS
+    )
+    
+    semantic_ckpt = ckpt_filename
+    
+    semantic_transformer = SemanticTransformer(
+        num_semantic_tokens=wav2vec.codebook_size,
+        **SEMANTIC_KWARGS 
+    ).to(DEVICE)
+
+    semantic_trainer = SemanticTransformerTrainer(
+        wav2vec,
+        semantic_transformer,
+        audio_conditioner=quantizer,
+        **TRANSFORMER_TRAINER_KWARGS
+    )
+    semantic_trainer.train()
+
+    semantic_trainer.save(str((MODELS / 'semantic' / semantic_ckpt).resolve()))

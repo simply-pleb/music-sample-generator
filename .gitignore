@@ -1,4 +1,7 @@
 *.mp3
 *.zip
 *.wav
+*.pt
+*.bin
+__pycache__
 yt-scrapper/links.txt

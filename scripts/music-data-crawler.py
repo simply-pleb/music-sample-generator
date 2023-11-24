@@ -77,6 +77,7 @@ def get_data(id, name, result_queue):
         link = discs[0].find('a', {'class': 'search_result_title'})['href']
     except AttributeError:
         print("attribute error")
+        return
 
     release_response = requests.get(
         url=f'https://www.discogs.com{link}', params=params, cookies=cookies, headers=headers,

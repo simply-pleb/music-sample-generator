@@ -4,13 +4,13 @@ import threading
 from collections import deque
 import os
 
-MAX_THREADS = 10
+MAX_THREADS = 20
 TIMEOUT = 10
 
 links = deque()
 valid = []
 
-with open('./links.txt', 'r') as file:
+with open('../data/intermediate-data/links.txt', 'r') as file:
     for line in file:
         links.append(line.strip())
 

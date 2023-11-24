@@ -2,7 +2,8 @@ import os
 from bs4 import BeautifulSoup as bs
 import requests
 
-playlist_url = 'https://www.youtube.com/watch?v=rjttzxG3hZw&list=PLPCWXaq8VyL2vi649E08OJAFzJtIA-Yaa'
+playlist_url = 'https://www.youtube.com/watch?v=rjttzxG3hZw&list=PLPCWXaq8VyL2vi649E08OJAFzJtIA-Yaa' # SOUL SAMPLES
+                # 'https://www.youtube.com/watch?v=emTqrb76ZVo&list=PLz1DmTkYpZW6pbDdQKLRmDNzJL78s-D2b' # Robbie's rare soul music
 
 data = []
 r = requests.get(playlist_url)

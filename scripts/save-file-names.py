@@ -8,11 +8,11 @@ def list_files(directory):
     return file_names
 
 # Replace 'your_directory_path' with the path to the directory you want to explore
-directory_path = 'raw-data/'
+directory_path = '../data/raw-data/'
 
 file_names = list_files(directory_path)
 
-file_names_output_path = 'raw-data/raw-data-file-name.txt'
+file_names_output_path = '../data/raw-data-file-name.txt'
 
 
 with open(file_names_output_path, 'w') as file:

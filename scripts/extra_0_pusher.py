@@ -13,13 +13,13 @@ files.sort()
 for i, file in enumerate(files):
     # Check if the file is an audio file (you can add more audio file extensions if needed)
     if file.endswith(('.mp3', '.wav', '.flac', '.ogg', '.m4a', '.aac')):
-        # Format the track number (e.g., 0001, 0002, 0010, etc.)
-        track_number = str(i + 1).zfill(4)
         
-        # Create the new file name with the track number
-        new_name = f"{track_number}_{file}"
+        if file[3] == '_':
+            # Create the new file name with the track number
+            new_name = f"0{file}"
+            # Rename the file
+            os.rename(os.path.join(directory, file), os.path.join(directory, new_name))
         
-        # Rename the file
-        os.rename(os.path.join(directory, file), os.path.join(directory, new_name))
+        
 
-print("Track numbers added to file names.")
+print("0 added at the beginning of 3-digit ID.")

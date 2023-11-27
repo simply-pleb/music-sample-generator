@@ -22,11 +22,13 @@ TRANSFORMER_TRAINER_KWARGS = {
     'num_train_steps': 10,
     'save_model_every': 2,
     'batch_size': 4,
-    'data_max_length_seconds': 10
+    'data_max_length_seconds': 10,
+    'results_folder': str((MODELS / 'mulan').resolve()),
+    'valid_frac': 0.
 }
 
 AUDIO_KWARGS = {
-    'dim': 512,
+    'dim': 16,
     'depth': 6,
     'heads': 8,
     'accept_spec': False,
@@ -38,7 +40,7 @@ AUDIO_KWARGS = {
 }
 
 TEXT_KWARGS = {
-    'dim': 512,
+    'dim': 16,
     'depth': 6,
     'heads': 8,
     'dim_head': 64
@@ -81,11 +83,11 @@ if __name__ == '__main__':
     quantizer = MuLaNEmbedQuantizer(
         mulan=mulan,                         
         **MULAN_QUANTIZER_KWARGS
-    )
+    ).to(DEVICE)
 
     wav2vec = HubertWithKmeans(
         **HUBERT_KWARGS
-    )
+    ).to(DEVICE)
     
     soundstream = SoundStream.init_and_load_from(str((MODELS / 'soundstream' / 'soundstream.pt').resolve()))
     

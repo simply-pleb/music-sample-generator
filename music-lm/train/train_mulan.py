@@ -33,6 +33,7 @@ MULAN_KWARGS = {
     'batch_size': 2,
     'force_clear_prev_results': False,
     'save_model_every': 5,
+    'valid_frac': 0.,
     'results_folder': str((PWD / 'models' / 'mulan').resolve())
 }
 
@@ -72,7 +73,7 @@ if __name__ == '__main__':
     trainer = MuLaNTrainer(mulan=mulan, **MULAN_KWARGS)
     
     if continue_training:
-        trainer.load(mulan_ckpt)
+        trainer.load(str((PWD / 'models' / 'mulan' / mulan_ckpt).resolve()))
     
     trainer.train()
     

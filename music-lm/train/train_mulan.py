@@ -9,7 +9,7 @@ PWD = Path(__file__).parent.parent
 DEVICE = 'cpu'
 
 AUDIO_KWARGS = {
-    'dim': 512,
+    'dim': 16,
     'depth': 6,
     'heads': 8,
     'accept_spec': False,
@@ -21,7 +21,7 @@ AUDIO_KWARGS = {
 }
 
 TEXT_KWARGS = {
-    'dim': 512,
+    'dim': 16,
     'depth': 6,
     'heads': 8,
     'dim_head': 64
@@ -29,7 +29,7 @@ TEXT_KWARGS = {
 
 MULAN_KWARGS = {
     'dataset': None,
-    'num_train_steps': 10,
+    'num_train_steps': 25,
     'batch_size': 2,
     'force_clear_prev_results': False,
     'save_model_every': 5,
@@ -38,15 +38,24 @@ MULAN_KWARGS = {
 
 if __name__ == '__main__':
     parser = arg.ArgumentParser()
-    parser.add_argument('-n', '--num_steps', type=int, default=10)
-    parser.add_argument('-b', '--batch_size', type=int, default=16)
+    parser.add_argument('-n', '--num_steps', type=int, default=MULAN_KWARGS['num_train_steps'])
+    parser.add_argument('-b', '--batch_size', type=int, default=MULAN_KWARGS['batch_size'])
     parser.add_argument('--audio_path', type=str, required=True)
     parser.add_argument('--caption_path', type=str, required=True)
     parser.add_argument('--ckpt_filename', type=str, required=True)
+    parser.add_argument('--continue_training', action='store_true')
     args = parser.parse_args()
-    train_steps, batch_size, audio_path, caption_path, ckpt_filename = args.num_steps, args.batch_size, args.audio_path, args.caption_path, args.ckpt_filename
+    (
+        train_steps, batch_size, 
+        audio_path, caption_path, 
+        ckpt_filename, continue_training
+    ) = (
+        args.num_steps, args.batch_size, 
+        args.audio_path, args.caption_path,
+        args.ckpt_filename, args.continue_training
+        )
     
-    train_dataset = MuLaNDataset(folder=audio_path, captions=caption_path, target_sample_hz=48000)
+    train_dataset = MuLaNDataset(folder=audio_path, captions=caption_path, target_sample_hz=4000)
     
     MULAN_KWARGS['dataset'] = train_dataset
     MULAN_KWARGS['batch_size'] = batch_size
@@ -61,6 +70,9 @@ if __name__ == '__main__':
                   text_transformer=text_transformer).to(DEVICE)
         
     trainer = MuLaNTrainer(mulan=mulan, **MULAN_KWARGS)
+    
+    if continue_training:
+        trainer.load(mulan_ckpt)
     
     trainer.train()
     

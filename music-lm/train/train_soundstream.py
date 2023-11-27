@@ -9,8 +9,9 @@ SOUNDSTREAM_TRAINER_KWARGS = {
     'folder': None,
     'num_train_steps': 20,
     'save_model_every': 2,
-    'batch_size': 16,
-    'data_max_length_seconds': 10
+    'batch_size': 2,
+    'data_max_length_seconds': 10,
+    'valid_frac': 0.
 }
 
 HUBERT_KWARGS = {
@@ -21,7 +22,7 @@ HUBERT_KWARGS = {
 if __name__ == '__main__':
     parser = arg.ArgumentParser()
     parser.add_argument('-n', '--num_train_steps', type=int, default=20)
-    parser.add_argument('-b', '--batch_size', type=int, default=16)
+    parser.add_argument('-b', '--batch_size', type=int, default=2)
     parser.add_argument('--audio_path', type=str, required=True)
     parser.add_argument('--ckpt_filename', type=str, required=True)
     args = parser.parse_args()
@@ -37,7 +38,7 @@ if __name__ == '__main__':
         **HUBERT_KWARGS
     )
     
-    soundstream = MusicLMSoundStream(target_sample_hz=48000,
+    soundstream = MusicLMSoundStream(target_sample_hz=4000,
                                      codebook_size=wav2vec.codebook_size)
     soundstream_trainer = SoundStreamTrainer(
         soundstream,

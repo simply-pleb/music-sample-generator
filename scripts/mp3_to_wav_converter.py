@@ -26,7 +26,7 @@ def main():
     threads = []
     threads_counter = 0
     
-    input_folder = "../data/raw-data/"
+    input_folder = "../data/mini-dataset/sampled-data/"
     tracks = os.listdir(input_folder)
 
     output_folder = "../wav-data/"  # Output folder where clips will be saved

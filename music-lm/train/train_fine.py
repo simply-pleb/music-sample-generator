@@ -20,16 +20,17 @@ FINE_KWARGS = {
 
 TRANSFORMER_TRAINER_KWARGS = {
     'folder': None,
-    'num_train_steps': 10,
-    'save_model_every': 2,
+    'num_train_steps': 20,
+    'save_model_every': 100,
     'batch_size': 4,
-    'data_max_length_seconds': 10,
-    'results_folder': str((MODELS / 'mulan').resolve()),
-    'valid_frac': 0.
+    'force_clear_prev_results': False,
+    'results_folder': str((MODELS / 'fine').resolve()),
+    'lr': 2e-6,
+    'valid_frac': 0.01
 }
 
 AUDIO_KWARGS = {
-    'dim': 512,
+    'dim': 128,
     'depth': 6,
     'heads': 8,
     'accept_spec': False,
@@ -41,7 +42,7 @@ AUDIO_KWARGS = {
 }
 
 TEXT_KWARGS = {
-    'dim': 512,
+    'dim': 128,
     'depth': 6,
     'heads': 8,
     'dim_head': 64
@@ -59,13 +60,16 @@ HUBERT_KWARGS = {
 
 if __name__ == '__main__':
     parser = arg.ArgumentParser()
-    parser.add_argument('-n', '--num_train_steps', type=int, default=20)
-    parser.add_argument('-b', '--batch_size', type=int, default=16)
+    parser.add_argument('-n', '--num_train_steps', type=int, default=TRANSFORMER_TRAINER_KWARGS['num_train_steps'])
+    parser.add_argument('-b', '--batch_size', type=int, default=TRANSFORMER_TRAINER_KWARGS['batch_size'])
     parser.add_argument('--audio_path', type=str, required=True)
     parser.add_argument('--ckpt_filename', type=str, required=True)
+    parser.add_argument('--continue_training', action='store_true')
+
     args = parser.parse_args()
     
     train_steps, batch_size, audio_path, ckpt_filename = args.num_train_steps, args.batch_size, args.audio_path, args.ckpt_filename
+    continue_training = args.continue_training
     
     TRANSFORMER_TRAINER_KWARGS['folder'] = str(Path(audio_path).resolve())
     TRANSFORMER_TRAINER_KWARGS['batch_size'] = batch_size
@@ -76,6 +80,7 @@ if __name__ == '__main__':
     
     mulan = MuLaN(audio_transformer=audio_transformer, 
                   text_transformer=text_transformer)
+    
     pkg = torch.load(str((MODELS / 'mulan' / 'mulan.pt').resolve()), map_location = 'cpu')
     mulan.load_state_dict(pkg['model'])
     
@@ -95,19 +100,19 @@ if __name__ == '__main__':
     fine_ckpt = ckpt_filename
     
     fine_transformer = FineTransformer(
-        codebook_size=wav2vec.codebook_size,
         **FINE_KWARGS
     ).to(DEVICE)
 
     fine_trainer = FineTransformerTrainer(
-        wav2vec,
-        fine_transformer,
+        transformer=fine_transformer,
         codec=soundstream,
         audio_conditioner=quantizer,
         **TRANSFORMER_TRAINER_KWARGS
     )
 
-    fine_trainer.train()
+    if continue_training:
+        fine_trainer.load(str((MODELS / 'fine' / fine_ckpt).resolve()))
 
+    fine_trainer.train()
 
     fine_trainer.save(str((MODELS / 'fine' / fine_ckpt).resolve()))

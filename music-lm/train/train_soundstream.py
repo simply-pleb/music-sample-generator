@@ -10,12 +10,13 @@ DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 SOUNDSTREAM_TRAINER_KWARGS = {
     'folder': None,
     'num_train_steps': 20,
-    'save_model_every': 2,
+    'save_model_every': 50,
     'batch_size': 2,
     'data_max_length_seconds': 10,
+    'lr': 2e-4,
     'force_clear_prev_results': False,
-    'results_folder': str((MODELS / 'mulan').resolve()),
-    'valid_frac': 0.
+    'results_folder': str((MODELS / 'soundstream').resolve()),
+    'valid_frac': 0.01
 }
 
 HUBERT_KWARGS = {
@@ -45,8 +46,8 @@ if __name__ == '__main__':
         **HUBERT_KWARGS
     ).to(DEVICE)
     
-    soundstream = MusicLMSoundStream(target_sample_hz=4000,
-                                     codebook_size=wav2vec.codebook_size).to(DEVICE)
+    soundstream = MusicLMSoundStream(target_sample_hz=8000,
+                                     codebook_size=1024).to(DEVICE)
     
     soundstream_trainer = SoundStreamTrainer(
         soundstream,

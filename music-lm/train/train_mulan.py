@@ -9,7 +9,7 @@ PWD = Path(__file__).parent.parent
 DEVICE = 'cpu'
 
 AUDIO_KWARGS = {
-    'dim': 16,
+    'dim': 128,
     'depth': 6,
     'heads': 8,
     'accept_spec': False,
@@ -21,7 +21,7 @@ AUDIO_KWARGS = {
 }
 
 TEXT_KWARGS = {
-    'dim': 16,
+    'dim': 128,
     'depth': 6,
     'heads': 8,
     'dim_head': 64
@@ -32,8 +32,9 @@ MULAN_KWARGS = {
     'num_train_steps': 25,
     'batch_size': 2,
     'force_clear_prev_results': False,
-    'save_model_every': 5,
-    'valid_frac': 0.,
+    'save_model_every': 100,
+    'lr': 2e-6,
+    'valid_frac': 0.01,
     'results_folder': str((PWD / 'models' / 'mulan').resolve())
 }
 
@@ -45,6 +46,7 @@ if __name__ == '__main__':
     parser.add_argument('--caption_path', type=str, required=True)
     parser.add_argument('--ckpt_filename', type=str, required=True)
     parser.add_argument('--continue_training', action='store_true')
+
     args = parser.parse_args()
     (
         train_steps, batch_size, 
@@ -56,7 +58,7 @@ if __name__ == '__main__':
         args.ckpt_filename, args.continue_training
         )
     
-    train_dataset = MuLaNDataset(folder=audio_path, captions=caption_path, target_sample_hz=4000)
+    train_dataset = MuLaNDataset(folder=audio_path, captions=caption_path, target_sample_hz=8000)
     
     MULAN_KWARGS['dataset'] = train_dataset
     MULAN_KWARGS['batch_size'] = batch_size

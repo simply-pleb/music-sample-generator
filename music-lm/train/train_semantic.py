@@ -18,15 +18,17 @@ SEMANTIC_KWARGS = {
 TRANSFORMER_TRAINER_KWARGS = {
     'folder': None,
     'num_train_steps': 20,
-    'save_model_every': 2,
+    'save_model_every': 100,
     'batch_size': 4,
+    'force_clear_prev_results': False,
     'data_max_length_seconds': 10,
-    'results_folder': str((MODELS / 'mulan').resolve()),
-    'valid_frac': 0.
+    'results_folder': str((MODELS / 'semantic').resolve()),
+    'lr': 2e-6,
+    'valid_frac': 0.01
 }
 
 AUDIO_KWARGS = {
-    'dim': 16,
+    'dim': 128,
     'depth': 6,
     'heads': 8,
     'accept_spec': False,
@@ -38,7 +40,7 @@ AUDIO_KWARGS = {
 }
 
 TEXT_KWARGS = {
-    'dim': 16,
+    'dim': 128,
     'depth': 6,
     'heads': 8,
     'dim_head': 64
@@ -55,17 +57,19 @@ HUBERT_KWARGS = {
 }
 
 
-
 if __name__ == '__main__':
     parser = arg.ArgumentParser()
-    parser.add_argument('-n', '--num_train_steps', type=int, default=20)
-    parser.add_argument('-b', '--batch_size', type=int, default=16)
+    parser.add_argument('-n', '--num_train_steps', type=int, default=TRANSFORMER_TRAINER_KWARGS['num_train_steps'])
+    parser.add_argument('-b', '--batch_size', type=int, default=TRANSFORMER_TRAINER_KWARGS['batch_size'])
     parser.add_argument('--audio_path', type=str, required=True)
     parser.add_argument('--ckpt_filename', type=str, required=True)
+    parser.add_argument('--continue_training', action='store_true')
+
     args = parser.parse_args()
     
     train_steps, batch_size, audio_path, ckpt_filename = args.num_train_steps, args.batch_size, args.audio_path, args.ckpt_filename
-    
+    continue_training = args.continue_training
+
     TRANSFORMER_TRAINER_KWARGS['folder'] = str(Path(audio_path).resolve())
     TRANSFORMER_TRAINER_KWARGS['batch_size'] = batch_size
     TRANSFORMER_TRAINER_KWARGS['num_train_steps'] = train_steps
@@ -103,6 +107,10 @@ if __name__ == '__main__':
         audio_conditioner=quantizer,
         **TRANSFORMER_TRAINER_KWARGS
     )
+
+    if continue_training:
+        semantic_trainer.load(str((MODELS / 'semantic' / semantic_ckpt).resolve()))
+    
     semantic_trainer.train()
 
     semantic_trainer.save(str((MODELS / 'semantic' / semantic_ckpt).resolve()))

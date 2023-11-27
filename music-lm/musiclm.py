@@ -39,7 +39,7 @@ FINE_KWARGS = {
 }
 
 AUDIO_KWARGS = {
-    'dim': 512,
+    'dim': 128,
     'depth': 6,
     'heads': 8,
     'accept_spec': False,
@@ -51,7 +51,7 @@ AUDIO_KWARGS = {
 }
 
 TEXT_KWARGS = {
-    'dim': 512,
+    'dim': 128,
     'depth': 6,
     'heads': 8,
     'dim_head': 64
@@ -89,12 +89,13 @@ if __name__ == "__main__":
     quantizer = MuLaNEmbedQuantizer(
         mulan=mulan,                         
         **MULAN_QUANTIZER_KWARGS
-    )
+    ).to(DEVICE)
 
     wav2vec = HubertWithKmeans(
         **HUBERT_KWARGS
-    )
+    ).to(DEVICE)
     
+    print(wav2vec.codebook_size)
     soundstream = SoundStream.init_and_load_from(str((MODELS / 'soundstream' / 'soundstream.pt').resolve()))
     
     semantic_transformer = SemanticTransformer(
@@ -110,7 +111,6 @@ if __name__ == "__main__":
     coarse_transformer.load(str((MODELS / 'coarse' / 'coarse.pt').resolve()))
     
     fine_transformer = FineTransformer(
-        codebook_size=wav2vec.codebook_size,
         **FINE_KWARGS
     ).to(DEVICE)
     fine_transformer.load(str((MODELS / 'fine' / 'fine.pt').resolve()))
@@ -121,12 +121,13 @@ if __name__ == "__main__":
         semantic_transformer=semantic_transformer,
         coarse_transformer=coarse_transformer,
         fine_transformer=fine_transformer   
-    )
+    ).to(DEVICE)
+
     music_lm = MusicLM(
         audio_lm=audio_lm,
         mulan_embed_quantizer=quantizer
-    )
+    ).to(DEVICE)
 
-    music = music_lm(prompt, num_samples=3)
+    music = music_lm(prompt, num_samples=3, max_length=1024)
     sample_rate = 44100
     torchaudio.save(output_path, music.cpu(), sample_rate)

@@ -27,6 +27,10 @@ We chose to train a model to generate samples in the Soul genre, since it is pop
 
 ## Main results (including artifacts)
 
+Model accepts a text prompt and generates an audio file based on the text prompt. 
+
+[result demo](https://drive.google.com/file/d/1K01LKAckoG0R_hefxfa50pZOx_WADWcr/view?usp=sharing )
+
 ## Timeline of the project
 
 September

@@ -17,7 +17,7 @@ Music Sample Generation
 
 Repository: [https://github.com/simply-pleb/music-sample-generator](https://github.com/simply-pleb/music-sample-generator)
 
-## What you tried to do during the project
+## What we tried to do during the project
 
 We tried to generate ~10s music clips, that are called **samples** in the music industry, for a specific use case described below.
 
@@ -31,9 +31,18 @@ We chose to train a model to generate samples in the Soul genre, since it is pop
 
 September
 
+- Collected data 
+- Literature review
+
 October 
 
+- Experiments with other models
+- Web-scraping scripts
+
 November
+
+- Formatting dataset (annotations)
+- Implementing MusicLM
 
 ## Individual contributions of the teammates
 
